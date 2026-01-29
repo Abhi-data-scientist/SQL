@@ -32,8 +32,10 @@ select name, continent, population from country where left(name,1)=left(continen
             
 -- get the country name where name's first charcter same as continent's first charcter
 select name, continent from country where substr(name,1,1)=substr(continent,1,1);
+select name, continent from country where left(name,1)=left(continent,1);
 -- get the country name and population where the starting three charcter of country is 'ALG'
 select name, population from country where substr(name,1,3)='Alg';
+select name, population from country where left(name,3)='Alg';
 
 		-- 5. instr(string,'a') it return the position where the character is present
         select name, instr(name,'e') from country;
@@ -44,9 +46,16 @@ select name, population from country where substr(name,1,3)='Alg';
         select char_length('  abhi   ');
         select char_length((trim('  abhi   ')));
         select trim(both 'z' from '  abhi hzzzzzzzzzzz');
+        select name, trim(both 'a' from trim(both 'A' from name)) from country;
 
+        -- 8. lpad and rpad =>  when we want to define a string with fixed size
+        select name, population, rpad(population,9,"#") from country;
+        select name, population, lpad(population,9,0) from country;
 
-
+		-- 9. replace(string, jisko replace krna hai , jisse replace krna hai )
+		select name, replace(name, 'a', 'c') from country;
+        -- 10. reverse() use to reverse a string
+        select reverse('abhishek');
 
 
 

@@ -31,7 +31,8 @@ select * from countrylanguage;
  -- get the country name , it's population and the language spoken with the percentage with each language 
  select cnt.name , cnt.population, cl.language, cl.percentage from countrylanguage as cl
  join country as cnt
- where cnt.code=cl.countrycode
+ where cnt.code=cl.countrycode;
 
-
-
+select cnt.name , cnt.population , cl.language , cl.percentage from countrylanguage as cl
+join country as cnt
+where cnt.code=cl.countrycode;
