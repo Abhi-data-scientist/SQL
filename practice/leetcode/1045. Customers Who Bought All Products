@@ -5,7 +5,9 @@ with cte as(
 )
 select customer_id from cte
 group by customer_id
-having count(*) = (select count(*) from product);
+having count(distinct product_key) = (select count(*) from product);
+
+
 
 ----------------------------------------------------------
 
